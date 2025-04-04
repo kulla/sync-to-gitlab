@@ -5,8 +5,9 @@ inputs:
   gitlab_token:
     description: >
       Token for pushing to GitLab which can be created in Gitlab under
-      Settings > Access Tokens.
-    required: true
+      Settings > Access Tokens. Uses the secret `GITLAB_TOKEN` by default.
+    required: false
+    default: "${{ secrets.GITLAB_TOKEN }}"
 
   gitlab_repository:
     description: >
