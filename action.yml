@@ -34,9 +34,12 @@ runs:
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      shell: bash
 
     - name: Add GitLab remote
       run: git remote add gitlab https://oauth2:${{ inputs.gitlab_token }}@gitlab.com/${{ inputs.gitlab_repository }}.git
+      shell: bash
 
     - name: Push to GitLab
       run: git push -f gitlab ${{ inputs.gitlab_branch }}
+      shell: bash
