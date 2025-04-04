@@ -11,4 +11,4 @@ jobs:
       - name: Run action to sync to GitLab
         uses: kulla/sync-to-gitlab@main
         with:
-          gitlab_repository: stephan_kulla/sync-to-gitlab
+          gitlab_owner: stephan_kulla

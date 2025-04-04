@@ -26,8 +26,10 @@ jobs:
       - name: Sync to GitLab
         uses: kulla/sync-to-gitlab@v1
         with:
+          # The following can be omitted if the GitLab owner is the same as the GitHub owner
+          gitlab_owner: <gitlab-username>
           # The following can be omitted if the GitLab repo is the same as the GitHub repo
-          gitlab_repo: <gitlab-username>/<gitlab-repo>
+          gitlab_repository_name: <gitlab-repo>
 ```
 
 See [`action.yml`](./action.yml) for all possible available inputs.
