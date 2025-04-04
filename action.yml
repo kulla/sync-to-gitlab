@@ -2,27 +2,27 @@ name: "Sync to GitLab"
 description: "Syncs the current branch to GitLab"
 
 inputs:
-  gitlab_token:
+  token:
     description: >
       Token for pushing to GitLab which can be created in Gitlab under
       Settings > Access Tokens. Uses the secret `GITLAB_TOKEN` by default.
     required: true
 
-  gitlab_owner:
+  owner:
     description: >
       GitLab owner or group name. If not provided, the default is the owner of
       the current Github repository.
     required: false
     default: "${{ github.repository_owner }}"
 
-  gitlab_repository_name:
+  repository_name:
     description: >
       GitLab repository name. If not provided, the default is the name of the
       current Github repository.
     required: false
     default: "${{ github.event.repository.name }}"
 
-  gitlab_branch:
+  branch:
     description: >
       Branch to push to in the GitLab repository. If not provided, the default
       is the current branch.
@@ -44,9 +44,9 @@ runs:
       shell: bash
 
     - name: Add GitLab remote
-      run: git remote add gitlab https://oauth2:${{ inputs.gitlab_token }}@gitlab.com/${{ inputs.gitlab_owner }}/${{ inputs.gitlab_repository_name }}.git
+      run: git remote add gitlab https://oauth2:${{ inputs.token }}@gitlab.com/${{ inputs.owner }}/${{ inputs.repository_name }}.git
       shell: bash
 
     - name: Push to GitLab
-      run: git push -f gitlab ${{ inputs.gitlab_branch }}
+      run: git push -f gitlab ${{ inputs.branch }}
       shell: bash

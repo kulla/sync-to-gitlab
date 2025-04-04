@@ -26,11 +26,11 @@ jobs:
       - name: Sync to GitLab
         uses: kulla/sync-to-gitlab@v1
         with:
-          gitlab_token: ${{ secrets.GITLAB_TOKEN }}
+          token: ${{ secrets.GITLAB_TOKEN }}
           # The following can be omitted if the GitLab owner is the same as the GitHub owner
-          gitlab_owner: <gitlab-username>
+          owner: <gitlab-username>
           # The following can be omitted if the GitLab repo is the same as the GitHub repo
-          gitlab_repository_name: <gitlab-repo>
+          repository_name: <gitlab-repo>
 ```
 
 See [`action.yml`](./action.yml) for all possible available inputs.
