@@ -1,0 +1,41 @@
+name: "Sync to GitLab"
+description: "Syncs the current branch to GitLab"
+
+inputs:
+  gitlab_token:
+    description: >
+      Token for pushing to GitLab which can be created in Gitlab under
+      Settings > Access Tokens.
+    required: true
+
+  gitlab_repository:
+    description: >
+      GitLab repository to push to. The format is `namespace/repository`. If not
+      provided, the default is the current GitHub repository.
+    required: false
+    default: "${{ github.repository }}"
+
+  gitlab_branch:
+    description: >
+      Branch to push to in the GitLab repository. If not provided, the default
+      is the current branch.
+    required: false
+    default: "${{ github.ref_name }}"
+
+runs:
+  - name: Checkout repository
+    uses: actions/checkout@v4
+    with:
+      fetch-depth: 0
+
+  - name: Set up Git
+    run: |
+      git config --global user.name "github-actions[bot]"
+      git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+  - name: Add GitLab remote
+    run: |
+      git remote add gitlab https://oauth2:${{ inputs.gitlab_token }}@gitlab.com/${{ inputs.gitlab_repository }}.git
+
+  - name: Push to GitLab
+    run: git push -f gitlab ${{ inputs.gitlab_branch }}
