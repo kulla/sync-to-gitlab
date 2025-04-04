@@ -11,4 +11,5 @@ jobs:
       - name: Run action to sync to GitLab
         uses: kulla/sync-to-gitlab@main
         with:
+          gitlab_token: ${{ secrets.GITLAB_TOKEN }}
           gitlab_owner: stephan_kulla
