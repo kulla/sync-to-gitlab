@@ -52,3 +52,7 @@ with:
   # Optional. The GitLab branch name to snyc to. If not set, the GitHub branch name is used.
   branch: <gitlab-branch>
 ```
+
+## Example
+
+This repository synchronizes the `main` branch of https://github.com/kulla/sync-to-gitlab to https://gitlab.com/stephan_kulla/sync-to-gitlab via [this GitHub action](./.github/workflows/test.yml).
