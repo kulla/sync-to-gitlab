@@ -26,7 +26,6 @@ jobs:
       - name: Sync to GitLab
         uses: kulla/sync-to-gitlab@v1
         with:
-          gitlab_token: ${{ secrets.GITLAB_TOKEN }}
           # The following can be omitted if the GitLab repo is the same as the GitHub repo
           gitlab_repo: <gitlab-username>/<gitlab-repo>
 ```
