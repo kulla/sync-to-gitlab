@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run action to sync to GitLab
-        uses: ./
+        uses: kulla/sync-to-gitlab@main
         with:
           gitlab_token: ${{ secrets.GITLAB_TOKEN }}
           gitlab_repository: stephan_kulla/sync-to-gitlab
