@@ -1,0 +1,15 @@
+name: Test this action
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run action to sync to GitLab
+        uses: ./
+        with:
+          gitlab_token: ${{ secrets.GITLAB_TOKEN }}
+          gitlab_repository: stephan_kulla/sync-to-gitlab
