@@ -33,4 +33,22 @@ jobs:
           repository_name: <gitlab-repo>
 ```
 
-See [`action.yml`](./action.yml) for all possible available inputs.
+## Inputs
+
+The action takes the following inputs:
+
+```yaml
+uses: kulla/sync-to-gitlab@v1
+with:
+  # The GitLab access token. This is required.
+  token: ${{ secrets.GITLAB_TOKEN }}
+
+  # Optional. The GitLab username or group name. If not set, the GitHub owner is used.
+  owner: <gitlab-username>
+
+  # Optional. The GitLab repository name. If not set, the GitHub repository name is used.
+  repository_name: <gitlab-repo>
+
+  # Optional. The GitLab branch name to snyc to. If not set, the GitHub branch name is used.
+  branch: <gitlab-branch>
+```
