@@ -1,4 +1,4 @@
-name: "Sync to GitLab"
+name: "GitHub → GitLab Sync"
 description: "Syncs the current branch to GitLab"
 
 inputs:
