@@ -1,6 +1,10 @@
 name: "GitHub → GitLab Sync"
 description: "Syncs the current branch to GitLab"
 
+branding:
+  icon: upload-cloud
+  color: green
+
 inputs:
   token:
     description: >
